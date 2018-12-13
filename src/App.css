@@ -1,0 +1,13 @@
+.logo {
+  height: 10vh;
+}
+
+p,
+h3,
+h4 {
+  color: #fff;
+}
+
+.weather-icon {
+  height: 10vh;
+}

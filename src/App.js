@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Titles from "./components/Titles";
 import Form from "./components/Form";
+import WeatherToday from "./components/WeatherToday";
 import Weather from "./components/Weather";
 import WeatherFuture from "./components/WeatherFuture";
 
@@ -81,36 +82,51 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Titles />
-        <Form getWeather={this.getWeather} />
-        <Weather
+        <header className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3">
+          <img
+            className="logo"
+            src="weather_report_logo.png"
+            alt="weather report logo"
+          />
+        </header>
+        <div className="d-flex justify-content-center">
+          <Titles />
+        </div>
+        <div className="d-flex justify-content-center">
+          <Form getWeather={this.getWeather} />
+        </div>
+        <WeatherToday
           temperature={this.state.temperature}
           city={this.state.city}
           country={this.state.country}
-          humidity={this.state.humidity}
           description={this.state.description}
-          wind={this.state.wind}
           icon={this.state.icon}
-          clouds={this.state.clouds}
-          temperature1={this.state.temperature1}
-          humidity1={this.state.humidity1}
-          description1={this.state.description1}
-          wind1={this.state.wind1}
-          icon1={this.state.icon1}
-          clouds1={this.state.clouds1}
           error={this.state.error}
         />
-        <WeatherFuture
-          city={this.state.city}
-          country={this.state.country}
-          temperature1={this.state.temperature1}
-          humidity1={this.state.humidity1}
-          description1={this.state.description1}
-          wind1={this.state.wind1}
-          icon1={this.state.icon1}
-          clouds1={this.state.clouds1}
-          error={this.state.error}
-        />
+        <div className="d-flex justify-content-center">
+          <Weather
+            humidity={this.state.humidity}
+            wind={this.state.wind}
+            temperature1={this.state.temperature1}
+            humidity1={this.state.humidity1}
+            description1={this.state.description1}
+            wind1={this.state.wind1}
+            icon1={this.state.icon1}
+            clouds1={this.state.clouds1}
+            error={this.state.error}
+          />
+          <WeatherFuture
+            city={this.state.city}
+            country={this.state.country}
+            temperature1={this.state.temperature1}
+            humidity1={this.state.humidity1}
+            description1={this.state.description1}
+            wind1={this.state.wind1}
+            icon1={this.state.icon1}
+            clouds1={this.state.clouds1}
+            error={this.state.error}
+          />
+        </div>
       </div>
     );
   }
